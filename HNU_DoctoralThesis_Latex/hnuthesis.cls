@@ -102,7 +102,7 @@
 \hnu@define@term{endate}
 
 \if@hnu@doctor
-  \newcommand\hnu@thesisname{博士学位论文}%
+  \newcommand\hnu@thesisname{硕士学位论文}%
 \fi
 
 % 表格：
