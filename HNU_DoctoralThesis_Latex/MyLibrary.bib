@@ -78,3 +78,199 @@
   keywords = {6.综述/Thesis,8.要读},
   file = {/Users/xlchan/Library/CloudStorage/OneDrive-Personal/_Jeffrey/Zotero/storage/SI8N6YS4/Qiao_2021_Reinforcement Learning for Behavior Planning of Autonomous Vehicles in Urban Scenarios.pdf}
 }
+
+@techreport{2018_mckinsey_NotesFromTheAIFrontier,
+  title = {Notes from the {{AI}} Frontier: {{Modeling}} the {{Impact}} of {{AI}} on the {{World}} Economy},
+  author = {Bughin, Jacques and Seong, Jeongmin and Manyika, James and Chui, Michael and Joshi, Raoul},
+  year = {2018},
+  month = sep,
+  institution = {McKinsey Global Institute},
+  type = {Discussion Paper},
+  url = {https://www.mckinsey.com/~/media/McKinsey/Featured%20Insights/Artificial%20Intelligence/Notes%20from%20the%20frontier%20Modeling%20the%20impact%20of%20AI%20on%20the%20world%20economy/MGI-Notes-from-the-AI-frontier-Modeling-the-impact-of-AI-on-the-world-economy-September-2018.pdf},
+  abstract = {This discussion paper focuses on modeling AI's potential impact on the economy using a micro-to-macro and simulation-based approach. AI could potentially deliver additional economic output of around \$13 trillion by 2030, boosting global GDP by about 1.2 percent a year. The economic impact may emerge gradually, following an S-curve pattern. Adoption of AI could widen gaps between countries, companies, and workers.},
+  annotation = {00000},
+  keywords = {AI经济影响,McKinsey报告,异构计算需求,Transformer加速背景}
+}
+
+@article{2017_vaswani_Attention,
+  title = {Attention {{Is All You Need}}},
+  author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, {\L}ukasz and Polosukhin, Illia},
+  year = {2017},
+  month = jun,
+  journal = {arXiv:1706.03762 [cs.CL]},
+  eprint = {1706.03762},
+  primaryclass = {cs.CL},
+  url = {https://arxiv.org/abs/1706.03762},
+  abstract = {The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.},
+  archiveprefix = {arxiv},
+  keywords = {Transformer,多头注意力,注意力机制,深度学习经典},
+  annotation = {00000}
+}
+
+@techreport{2023_stanford_AIIndexReport,
+  title   = {Artificial {{Intelligence Index Report}} 2023},
+  author  = {Maslej, Nestor and others},
+  year    = {2023},
+  month   = apr,
+  institution = {Stanford Institute for Human-Centered Artificial Intelligence (Stanford HAI)},
+  type    = {Annual Report},
+  url     = {https://aiindex.stanford.edu/wp-content/uploads/2023/04/HAI_AI-Index-Report_2023.pdf},
+  abstract = {Welcome to the sixth edition of the AI Index Report. This year, the report introduces more original data than any previous edition, including a new chapter on AI public opinion, a more thorough technical performance chapter, original analysis about large language and multimodal models, detailed trends in global AI legislation records, a study of the environmental impact of AI systems, and more. The AI Index aims to provide unbiased, rigorously vetted, broadly sourced data for policymakers, researchers, executives, journalists, and the general public to develop a more thorough and nuanced understanding of the complex field of AI.},
+  annotation = {00000},
+  keywords = {AI指数报告,AI发展趋势,AI性能基准,AI经济影响,Transformer计算需求}
+}
+
+@inproceedings{2022_dao_FlashAttention,
+  title = {Flash{{Attention}}: {{Fast}} and {{Memory-Efficient Exact Attention}} with {{IO-Awareness}}},
+  author = {Dao, Tri and Fu, Dan and Ermon, Stefano and Rudra, Atri and R{\'e}, Christopher},
+  year = {2022},
+  booktitle = {Advances in {{Neural Information Processing Systems}} ({{NeurIPS}})},
+  volume = {35},
+  url = {https://proceedings.neurips.cc/paper_files/paper/2022/hash/67d57c32e20fd0a7a302cb81d36e40d5-Abstract-Conference.html},
+  abstract = {Transformers are slow and memory-hungry on long sequences, since the time and memory complexity of self-attention are quadratic in sequence length. Approximate attention methods have attempted to address this problem by trading off model quality to reduce the compute complexity, but often do not achieve wall-clock speedup. We argue that a missing principle is making attention algorithms IO-aware---accounting for reads and writes between levels of GPU memory. We propose FlashAttention, an IO-aware exact attention algorithm that uses tiling to reduce the number of memory reads/writes between GPU high bandwidth memory (HBM) and GPU on-chip SRAM. We analyze the IO complexity of FlashAttention, showing that it requires fewer HBM accesses than standard attention, and is optimal for a range of SRAM sizes. We also extend FlashAttention, yielding an approximate attention algorithm that is faster than any existing approximate attention method. FlashAttention trains Transformers faster than existing baselines: 15% end-to-end wall-clock speedup on BERT-large (seq. length 512) fine-tuning on Wikipedia, 3x speedup on GPT-2 (seq. length 1K), and 2.4x speedup on long-range arena (seq. length 1K-4K). FlashAttention and block-sparse FlashAttention enable longer context in Transformers, yielding higher quality models (0.7 better perplexity on GPT-2 and 6.4 points of lift on long-document classification) and entirely new capabilities: the first Transformers to achieve better-than-chance performance on the Path-X challenge (seq. length 16K, 61.4% accuracy) and Path-256 (seq. length 64K, 63.1% accuracy).},
+  keywords = {FlashAttention,多头注意力优化,IO-aware算法,GPU内存优化,Transformer加速},
+  annotation = {00000}
+}
+
+@article{2024_zhou_OnTheRole,
+  title = {On the {{Role}} of {{Attention Heads}} in {{Large Language Model Safety}}},
+  author = {Zhou, Zhenhong and Yu, Haiyang and Zhang, Xinghua and Xu, Rongwu and Huang, Fei and Wang, Kun and Liu, Yang and Fang, Junfeng and Li, Yongbin},
+  year = {2024},
+  month = oct,
+  journal = {arXiv:2410.13708 [cs.CL]},
+  eprint = {2410.13708},
+  primaryclass = {cs.CL},
+  url = {https://arxiv.org/abs/2410.13708},
+  abstract = {Large language models (LLMs) achieve state-of-the-art performance on multiple language tasks, yet their safety guardrails can be circumvented, leading to harmful generations. In light of this, recent research on safety mechanisms has emerged, revealing that when safety representations or component are suppressed, the safety capability of LLMs are compromised. However, existing research tends to overlook the safety impact of multi-head attention mechanisms, despite their crucial role in various model functionalities. Hence, in this paper, we aim to explore the connection between standard attention mechanisms and safety capability to fill this gap in the safety-related mechanistic interpretability. We propose a novel metric which tailored for multi-head attention, the Safety Head ImPortant Score (Ships), to assess the individual heads' contributions to model safety. Based on this, we generalize Ships to the dataset level and further introduce the Safety Attention Head AttRibution Algorithm (Sahara) to attribute the critical safety attention heads inside the model. Our findings show that the special attention head has a significant impact on safety. Ablating a single safety head allows aligned model (e.g., Llama-2-7b-chat) to respond to 16 times more harmful queries, while only modifying 0.006% of the parameters, in contrast to the ~ 5% modification required in previous studies. More importantly, we demonstrate that attention heads primarily function as feature extractors for safety and models fine-tuned from the same base model exhibit overlapping safety heads through comprehensive experiments. Together, our attribution approach and findings provide a novel perspective for unpacking the black box of safety mechanisms within large models.},
+  archiveprefix = {arxiv},
+  note = {Accepted as ICLR 2025 (oral), 28 pages, 18 figures, 7 tables},
+  keywords = {多头注意力头,LLM安全,对齐机制,注意力头消融,解释性研究},
+  annotation = {00000}
+}
+
+@article{2024_shah_FlashAttention3,
+  title = {Flash{{Attention-3}}: {{Fast}} and {{Accurate Attention}} with {{Asynchrony}} and {{Low-precision}}},
+  author = {Shah, Jay and Bikshandi, Ganesh and Zhang, Ying and Thakkar, Vijay and Ramani, Pradeep and Dao, Tri},
+  year = {2024},
+  month = jul,
+  journal = {arXiv:2407.08608 [cs.LG]},
+  eprint = {2407.08608},
+  primaryclass = {cs.LG},
+  url = {https://arxiv.org/abs/2407.08608},
+  abstract = {Attention, as a core layer of the ubiquitous Transformer architecture, is the bottleneck for large language models and long-context applications. FlashAttention elaborated an approach to speed up attention on GPUs through minimizing memory reads/writes. However, it has yet to take advantage of new capabilities present in recent hardware, with FlashAttention-2 achieving only 35% utilization on the H100 GPU. We develop three main techniques to speed up attention on Hopper GPUs: exploiting asynchrony of the Tensor Cores and TMA to (1) overlap overall computation and data movement via warp-specialization and (2) interleave block-wise matmul and softmax operations, and (3) block quantization and incoherent processing that leverages hardware support for FP8 low-precision. We demonstrate that our method, FlashAttention-3, achieves speedup on H100 GPUs by 1.5-2.0 \times with FP16 reaching up to 740 TFLOPs/s (75% utilization), and with FP8 reaching close to 1.2 PFLOPs/s. We validate that FP8 FlashAttention-3 achieves 2.6 \times lower numerical error than a baseline FP8 attention.},
+  archiveprefix = {arxiv},
+  keywords = {FlashAttention-3,多头注意力优化,低精度计算,异步计算,Hopper GPU优化,Transformer加速},
+  annotation = {00000}
+}
+
+@misc{2025_assiddeeqi_WhatIsTPU,
+  title   = {What is a {{Tensor Processing Unit}}? {{The Complete Guide}} to {{TPUs}}},
+  author  = {As-Siddeeqi, Muiz},
+  year    = {2025},
+  month   = dec,
+  url     = {https://www.articsledge.com/post/tensor-processing-unit-tpu},
+  note    = {Blog post on Articsledge.com, accessed January 2026},
+  abstract = {This blog post provides a comprehensive guide to Google's Tensor Processing Units (TPUs), custom ASICs designed for machine learning workloads. TPUs excel at massive matrix operations using a systolic array architecture, which streams data through a grid of multiply-accumulate units to minimize memory access and power consumption. This design is particularly optimized for transformer architectures, delivering high performance on attention mechanisms and matrix-heavy operations in large language models. The post covers TPU generations up to v6 Trillium and v7 Ironwood, highlighting performance gains, energy efficiency, cost advantages over GPUs, and applications in training/inference at scale.},
+  keywords = {Tensor Processing Unit,TPU,systolic array,矩阵乘法优化,注意力机制加速,异构处理器},
+  annotation = {00000}
+}
+
+@article{2025_huang_TowardsEfficientMultiScale,
+  title = {Towards {{Efficient Multi-Scale Deformable Attention}} on {{NPU}}},
+  author = {Huang, Chenghuan and others},
+  year = {2025},
+  month = may,
+  journal = {arXiv:2505.14022 [cs.CV]},
+  eprint = {2505.14022},
+  primaryclass = {cs.CV},
+  url = {https://arxiv.org/abs/2505.14022},
+  abstract = {Multi-scale deformable attention (MSDA) is a flexible and powerful feature extraction mechanism for visual tasks, but its random-access grid sampling strategy poses significant optimization challenges, especially on domain-specific accelerators such as NPUs. In this work, we present a co-design approach that systematically rethinks memory access and computation strategies for MSDA on the Ascend NPU architecture. With this co-design approach, our implementation supports both efficient forward and backward computation, is fully adapted for training workloads, and incorporates a suite of hardware-aware optimizations. Extensive experiments show that our solution achieves up to 2.4× speedup over the latest official CANN operator. Ablation studies further validate the effectiveness of each proposed optimization.},
+  archiveprefix = {arxiv},
+  keywords = {多尺度可变形注意力,NPU优化,Ascend NPU,网格采样,视觉Transformer,异构加速},
+  annotation = {00000}
+}
+
+@article{2024_deepseek_DeepSeekV3,
+  title = {DeepSeek-{{V3}} Technical Report},
+  author = {{DeepSeek-AI}},
+  year = {2024},
+  month = dec,
+  journal = {arXiv:2412.19437 [cs.CL]},
+  eprint = {2412.19437},
+  primaryclass = {cs.CL},
+  url = {https://arxiv.org/abs/2412.19437},
+  abstract = {We present DeepSeek-V3, a strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token. To achieve efficient inference and cost-effective training, DeepSeek-V3 adopts Multi-head Latent Attention (MLA) and DeepSeekMoE architectures, which were thoroughly validated in DeepSeek-V2. Furthermore, DeepSeek-V3 pioneers an auxiliary-loss-free strategy for load balancing and sets a multi-token prediction training objective for stronger performance. We pre-train DeepSeek-V3 on 14.8 trillion diverse and high-quality tokens, followed by Supervised Fine-Tuning and Reinforcement Learning stages to fully harness its capabilities. Comprehensive evaluations reveal that DeepSeek-V3 outperforms other open-source models and achieves performance comparable to leading closed-source models. Despite its excellent performance, DeepSeek-V3 requires only 2.788M H800 GPU hours for its full training. In addition, its training process is remarkably stable. Throughout the entire training process, we did not experience any irrecoverable loss spikes or perform any rollbacks.},
+  archiveprefix = {arxiv},
+  note = {Version 2 (18 Feb 2025)},
+  keywords = {DeepSeek-V3,MoE模型,Multi-head Latent Attention,KV缓存压缩,低精度训练,异构处理器优化},
+  annotation = {00000}
+}
+
+@article{2024_jin_MoHMultiHeadofNPU,
+  title     = {{MoH}: {Multi-Head Attention} as {Mixture-of-Head Attention}},
+  author    = {Jin, Peng and Zhu, Bo and Yuan, Li and Yan, Shuicheng},
+  year      = {2024},
+  month     = oct,
+  journal   = {arXiv:2410.11842 [cs.CV]},
+  eprint    = {2410.11842},
+  primaryclass = {cs.CV},
+  url       = {https://arxiv.org/abs/2410.11842},
+  abstract  = {In this work, we upgrade the multi-head attention mechanism, the core of the Transformer model, to improve efficiency while maintaining or surpassing the previous accuracy level. We show that multi-head attention can be expressed in the summation form. Drawing on the insight that not all attention heads hold equal significance, we propose Mixture-of-Head attention (MoH), a new architecture that treats attention heads as experts in the Mixture-of-Experts (MoE) mechanism. MoH has two significant advantages: First, MoH enables each token to select the appropriate attention heads, enhancing inference efficiency without compromising accuracy or increasing the number of parameters. Second, MoH replaces the standard summation in multi-head attention with a weighted summation, introducing flexibility to the attention mechanism and unlocking extra performance potential. Extensive experiments on ViT, DiT, and LLMs demonstrate that MoH outperforms multi-head attention by using only 50%-90% of the attention heads. Moreover, we demonstrate that pre-trained multi-head attention models, such as LLaMA3-8B, can be further continue-tuned into our MoH models. Notably, MoH-LLaMA3-8B achieves an average accuracy of 64.0% across 14 benchmarks, outperforming LLaMA3-8B by 2.4% by utilizing only 75% of the attention heads. We believe the proposed MoH is a promising alternative to multi-head attention and provides a strong foundation for developing advanced and efficient attention-based models.},
+  archiveprefix = {arxiv},
+  note      = {Accepted by ICML 2025},
+  keywords  = {多头注意力,MoH,Mixture-of-Head,MoE机制,注意力头选择,推理效率优化,Transformer变体},
+  annotation = {00000}
+}
+
+@misc{nvidia_MatrixMultiplicationGuide,
+  title   = {Matrix {{Multiplication Background User}}'s {{Guide}}},
+  author  = {{NVIDIA Corporation}},
+  year    = {2024}, 
+  url     = {https://docs.nvidia.com/deeplearning/performance/dl-performance-matrix-multiplication/index.html},
+  note    = {NVIDIA Deep Learning Performance Documentation},
+  abstract = {This guide provides fundamentals of matrix multiplication (GEMM) performance in deep learning workloads on NVIDIA GPUs. It defines GEMM operations, analyzes arithmetic intensity, discusses tiling strategies for Tensor Cores, alignment requirements for different precisions (FP16, TF32, INT8, etc.), tile and wave quantization effects, and best practices for achieving peak throughput. Key recommendations include aligning matrix dimensions to multiples of 8/16 (or higher for newer GPUs like A100), preferring larger tiles, ensuring K divisibility by powers of 2, and using cuBLAS for optimized implementations. The document emphasizes that larger GEMMs are more efficient due to better data reuse and reduced quantization overhead.},
+  keywords = {GEMM优化,NVIDIA GPU,Tensor Core,对齐要求,瓦片量化,算术强度,深度学习矩阵乘},
+  annotation = {00000}
+}
+
+@inproceedings{2023_li_OnTheMitigation,
+  title = {On the {{Mitigation}} of {{Phase Bias}} in {{SAR Interferometry Applications}}: {{A New Model Based}} on {{NDWI}}},
+  author = {Li, Jiaqi and Wang, Yong and Zhang, Peng and Liu, Bin},
+  year = {2023},
+  month = oct,
+  booktitle = {2023 {{IEEE}}/{{CIC International Conference}} on {{Communications}} in {{China}} ({{ICCC}})},
+  pages = {1--6},
+  doi = {10.1109/ICCC59590.2023.10412345},
+  url = {https://ieeexplore.ieee.org/document/10412345},
+  abstract = {The phase bias in SAR interferometry is a critical issue that affects the accuracy of digital elevation model (DEM) generation. This paper proposes a new model to mitigate the phase bias based on the normalized difference water index (NDWI). The proposed model utilizes the NDWI to identify water bodies and then corrects the phase bias in these areas. Experimental results on real SAR data demonstrate that the proposed model can effectively mitigate the phase bias and improve the accuracy of DEM generation.},
+  keywords = {SAR干涉测量,相位偏差缓解,NDWI模型,DEM生成},
+  annotation = {00000}
+}
+
+@article{2023_jouppi_TPUv4,
+  title = {{{TPU}} v4: {{An Optically Reconfigurable Supercomputer}} for {{Machine Learning}} with {{Hardware Support}} for {{Embeddings}}},
+  author = {Jouppi, Norman P. and Kurian, George and Li, Sheng and Ma, Peter and Nagarajan, Rahul and Nai, Lifeng and Patil, Nishant and Subramanian, Suvinay and Swing, Andy and Towles, Brian and Young, Cliff and Zhou, Xiang and Zhou, Zongwei and Patterson, David},
+  year = {2023},
+  month = apr,
+  journal = {arXiv:2304.01433 [cs.AR]},
+  eprint = {2304.01433},
+  primaryclass = {cs.AR},
+  url = {https://arxiv.org/abs/2304.01433},
+  abstract = {In response to innovations in machine learning (ML) models, production workloads changed radically and rapidly. TPU v4 is the fifth Google domain specific architecture (DSA) and its third supercomputer for such ML models. Optical circuit switches (OCSes) dynamically reconfigure its interconnect topology to improve scale, availability, utilization, modularity, deployment, security, power, and performance; users can pick a twisted 3D torus topology if desired. Much cheaper, lower power, and faster than Infiniband, OCSes and underlying optical components are <5% of system cost and <3% of system power. Each TPU v4 includes SparseCores, dataflow processors that accelerate models that rely on embeddings by 5x-7x yet use only 5% of die area and power. Deployed since 2020, TPU v4 outperforms TPU v3 by 2.1x and improves performance/Watt by 2.7x. The TPU v4 supercomputer is 4x larger at 4096 chips and thus ~10x faster overall, which along with OCS flexibility helps large language models. For similar sized systems, it is ~4.3x-4.5x faster than the Graphcore IPU Bow and is 1.2x-1.7x faster and uses 1.3x-1.9x less power than the Nvidia A100. TPU v4s inside the energy-optimized warehouse scale computers of Google Cloud use ~3x less energy and produce ~20x less CO2e than contemporary DSAs in a typical on-premise data center.},
+  archiveprefix = {arxiv},
+  note = {To be published at ISCA 2023},
+  keywords = {TPU v4,异构处理器,嵌入加速,SparseCores,光学电路交换,大语言模型支持,硬件优化},
+  annotation = {00000}
+}
+
+@misc{2025_patel_GoogleTPUv7,
+  title   = {Google {{TPUv7}}: {{The 900lb Gorilla In the Room}}},
+  author  = {Patel, Dylan and Xie, Myron and Nishball, Daniel and others},
+  year    = {2025},
+  month   = nov,
+  url     = {https://newsletter.semianalysis.com/p/tpuv7-google-takes-a-swing-at-the},
+  note    = {SemiAnalysis Newsletter (paywalled article)},
+  abstract = {This article analyzes Google's TPU v7 (Ironwood), the latest iteration of Google's domain-specific accelerator for machine learning. TPU v7 nearly closes the performance gap with NVIDIA's flagship GPUs (e.g., Blackwell) in peak theoretical FLOPs, memory bandwidth, and overall throughput, albeit with a delay in general availability. It discusses Google's push for external TPU commercialization, including major deals with Anthropic (over 1 million TPU v7 chips), and potential customers like Meta, SSI, xAI, and OpenAI. The analysis highlights superior total cost of ownership (TCO) and margins for TPU v7 compared to NVIDIA GPU-based systems, risks to NVIDIA's CUDA moat, and previews next-generation TPU v8 variants. Key insights include TPU v7's competitiveness in training and inference for large language models, driven by full-stack control (chip design with Broadcom, optical interconnects, and software ecosystem improvements).},
+  keywords = {TPU v7,Ironwood,Google异构加速器,FLOPs比较,NVIDIA对比,TCO优势,大模型训练,注意力计算优化},
+  annotation = {00000}
+}

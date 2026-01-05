@@ -1,8 +1,48 @@
 \chapter{绪\quad 论}
 
 \section{研究背景和意义}
-随着信息技术的迅猛发展，人工智能（Artificial Intelligence, AI）已成为推动社会进步和经济转型的核心驱动力。自20世纪50年代图灵提出“机器能否思考”的问题以来，人工智能经历了从符号主义、连接主义到深度学习的演变过程。特别是在过去十年，深度学习技术的突破性进展，使得AI在图像识别、自然语言处理、自动驾驶等领域取得了革命性成就。根据麦肯锡全球研究所的报告，人工智能有望在2030年前为全球经济贡献约13万亿美元的价值增长[1]。然而，AI的快速发展也对计算资源提出了更高的要求，尤其是大规模模型的训练和推理过程，需要高效的硬件支持和算法优化。
+随着信息技术的迅猛发展，人工智能（Artificial Intelligence, AI）已成为推动社会进步和经济转型的核心驱动力。自20世纪50年代图灵提出“机器能否思考”的问题以来，人工智能经历了从符号主义、连接主义到深度学习的演变过程。特别是在过去十年，深度学习技术的突破性进展，使得AI在图像识别、自然语言处理、自动驾驶等领域取得了革命性成就。根据麦肯锡全球研究所的报告，人工智能有望在2030年前为全球经济贡献约13万亿美元的价值增长\cite{2018_mckinsey_NotesFromTheAIFrontier}。然而，AI的快速发展也对计算资源提出了更高的要求，尤其是大规模模型的训练和推理过程，需要高效的硬件支持和算法优化。
 
+在大语言模型（Large Language Models, LLMs）领域，这一需求尤为突出。大语言模型的历史可以追溯到20世纪90年代的统计语言模型，但真正的高速发展始于2010年代的深度学习时代。2017年，Vaswani等人在论文《Attention Is All You Need》中提出Transformer架构，标志着大语言模型从循环神经网络（Recurrent Neural Networks, RNNs）向注意力机制的范式转变\cite{2017_vaswani_Attention}。随后，OpenAI的GPT系列（从GPT-1到GPT-4）、Google的BERT和T5等模型相继问世，这些模型的参数规模从数亿迅速扩展到万亿级别。大语言模型的意义在于其强大的泛化能力和多模态处理潜力，不仅革新了自然语言生成、翻译和问答等任务，还扩展到代码生成、医疗诊断和创意内容创作等领域。根据斯坦福大学AI指数报告，2023年大语言模型在基准测试中的表现已接近或超过人类水平\cite{2023_stanford_AIIndexReport}。然而，这些模型的计算密集型特性导致训练成本高昂（如GPT-3训练需数百万美元的计算资源），并对硬件平台的依赖性日益增强。在国际技术封锁和供应链不确定性的背景下，实现大语言模型在国产硬件上的高效部署已成为迫切需求。
+
+多头注意力（Multi-Head Attention, MHA）机制是大语言模型的核心组件，是Transformer架构中实现序列建模的关键算子。该机制通过将输入向量投影到多个独立的注意力头（Heads），并行计算不同子空间的注意力权重，从而捕捉序列中长距离依赖关系，提高模型的表达能力和鲁棒性\cite{2017_vaswani_Attention}。多头注意力的重要性体现在其计算效率和模型性能上：它不仅降低了单头注意力的局限性（如信息瓶颈），还支持并行计算，显著加速训练和推理过程。在大语言模型中，多头注意力占据了计算量的主要部分，其优化直接影响整体模型的性能和能效\cite{2022_dao_FlashAttention}。然而，在传统通用处理器（如x86或ARM）上实现多头注意力时，常常面临内存带宽瓶颈和计算单元利用率低的问题，尤其是在大规模矩阵运算（如矩阵乘法和Softmax）中。
+
+本研究聚焦于面向国产异构处理器的多头注意力算子实现与优化，具有重要的理论和实践意义。中国在高性能计算领域的国产化进程已取得显著进展，如天河系列超级计算机和华为昇腾处理器。这些处理器采用自主架构，集成高密度计算单元和专用加速模块，能够支持向量化和并行计算。然而，受国际芯片禁运影响（如2015年美国对国防科技大学等单位的出口管制），国产设备在AI负载下的性能优化仍面临挑战。在国产异构处理器上实现高性能的多头注意力算子，有助于突破技术封锁，实现AI计算的自主可控，提升国家信息安全水平。
+
+\section{国内外多头注意力函数研究现状}
+多头注意力（Multi-Head Attention, MHA）机制作为Transformer架构的核心组件，自2017年提出以来，已成为深度学习领域尤其是自然语言处理和计算机视觉任务中的关键技术。近年来，随着大语言模型（Large Language Models, LLMs）的快速发展，多头注意力的研究重点转向计算效率优化、内存消耗降低和硬件适配方面。2024-2025年间，研究现状显示，多头注意力机制的创新主要集中在减少计算复杂度、支持长序列处理以及适应异构硬件平台上。例如，通过混合注意力头（Mixture-of-Head Attention, MoH）或门控机制（如Gated Multi-Head Attention），研究者实现了注意力头的动态分配和参数压缩，显著提升模型性能。同时，在安全性和可解释性方面，注意力头的角色研究也日益深入，帮助揭示LLMs的内部决策过程。总体而言，国内外研究均强调多头注意力的硬件优化，以应对AI计算的爆炸式增长，但国外在通用GPU和TPU上的成熟框架领先，而国内则聚焦国产芯片的自主创新\cite{2024_zhou_OnTheRole}。
+
+\subsection{国外多头注意力函数相关研究}
+国外研究在多头注意力机制上处于领先地位，主要由美国科技巨头如NVIDIA和Google主导，焦点在于高性能硬件平台的优化和算法创新。2024-2025年间，研究强调通过内核融合、异步计算和内存感知算法来加速注意力计算，适用于大规模LLMs的训练和推理。
+\\
+(1) {NVIDIA GPU上的多头注意力}
+
+NVIDIA GPU作为主流AI加速平台，多头注意力优化研究高度活跃，尤其在Ampere（A100）和Hopper（H100）架构上，这些GPU配备了先进的Tensor Cores，支持FP16、FP8和INT8等低精度计算，专为矩阵乘法（GEMM）操作设计，而多头注意力机制的核心计算（如QKV投影和缩放点积）高度依赖GEMM\cite{nvidia_MatrixMultiplicationGuide}。在硬件层面，NVIDIA GPU的流多处理器（Streaming Multiprocessors, SM）提供大规模并行执行能力，每个SM包含多个Tensor Core单元，能够同时处理多个注意力头的计算，提高吞吐量。例如，在H100 GPU上，Tensor Cores的峰值性能可达数百TFLOPs，用于加速注意力中的矩阵-向量乘法，同时NVLink和NVSwitch技术支持多GPU互联，实现分布式训练中的高效通信\cite{2023_li_OnTheMitigation}。
+
+
+FlashAttention系列算法是典型代表，该算法通过块状计算和IO感知机制，显著减少内存读写操作，实现7倍以上的速度提升\cite{2022_dao_FlashAttention}。具体到硬件优化，FlashAttention利用GPU的共享内存（SRAM）和高带宽内存（HBM）层次，避免频繁的全局内存访问；在Hopper架构中，它进一步整合异步操作，以减少计算和内存传输的同步开销。2024年发布的FlashAttention-3针对Hopper架构（如H100 GPU）引入异步Tensor Core和TMA（Tensor Memory Access）技术，TMA允许从HBM异步加载数据到共享内存，同时Tensor Cores处理低精度计算，进一步优化注意力计算的并行性和效率\cite{2024_shah_FlashAttention3}。这一优化特别适用于长序列处理，因为TMA减少了内存瓶颈，而异步执行允许计算与数据移动重叠，在H100上实现1.5-2.0倍的加速，峰值利用率达75\%。
+
+
+此外，TensorRT-LLM框架支持MHA、MQA和GQA的自动回归实现，通过内核融合和量化优化，适用于生成式模型。在硬件支持下，TensorRT利用cuDNN和CUTLASS库自定义融合内核，将注意力计算与LayerNorm等操作合并，减少中间结果的存储需求；Hopper的FP8支持进一步降低内存占用，同时保持精度。这些优化在PyTorch和CUDA生态中广泛应用，针对长序列注意力瓶颈提供了高效解决方案。
+\\
+(2) {Google TPU上的多头注意力}
+
+Google TPU\cite{2025_assiddeeqi_WhatIsTPU}作为专为矩阵密集型AI工作负载设计的加速器，在多头注意力优化上强调大规模并行计算、硬件专属架构和编译器集成。其核心计算单元是矩阵乘法单元（Matrix Multiply Unit, MXU），采用脉动阵列（systolic array）架构，例如早期版本（如TPU v3/v4/v5）使用128×128规模的MXU，而Trillium（TPU v6e）扩展至256×256规模，大幅提升每周期FLOPs输出\cite{2023_jouppi_TPUv4}。这种脉动阵列设计通过数据流水线传输，实现高效的乘累加操作（MAC），特别适合多头注意力中的QKV投影、缩放点积和输出投影等GEMM密集计算，减少内存访问开销并提高能量效率。
+
+在硬件层面，TPU芯片配备高带宽内存（HBM）和向量处理单元（VPU），支持bfloat16（BF16）格式以平衡精度和性能，同时后期版本引入SparseCores加速嵌入层和MoE模型中的稀疏操作。多芯片Pod通过高速度互连（Inter-Chip Interconnect, ICI）和3D/2D torus拓扑实现低延迟通信，支持数千芯片规模的分布式注意力计算。最新Ironwood（TPU v7）进一步优化推理场景，提供192GB HBM3e和更高带宽，支持FP8低精度计算，显著降低长序列注意力的KV缓存内存占用\cite{2025_patel_GoogleTPUv7}。
+
+TPU v5e及后续版本通过多头注意力机制加速decoder-only语言模型推理，结合JAX框架和XLA编译器，实现高效的Transformer块执行，包括LayerNorm、MHA和前馈网络。XLA编译器自动优化张量维度以对齐MXU大小（例如维度需为128或256的倍数），避免填充浪费并最大化脉动阵列利用率。2025年，vLLM框架在TPU上的适配引入Ragged Paged Attention v3（分页注意力优化），提供2-5倍吞吐量提升，支持不规则序列和动态批处理，特别适用于多头注意力的KV缓存管理。此外，Gemini 1.5 PRO等模型探索了Mixture-of-Experts（MoE）与门控多头注意力的融合，利用SparseCores优化专家路由和注意力计算，提高复杂任务的效率。TPU的碎片化研究还包括分片嵌入和多头投影层的优化，通过数据并行和张量并行针对隐藏维度和词汇表进行扩展。这些硬件-软件协同优化突显TPU在云端大规模AI训练和推理中的优势，尤其在长序列多头注意力瓶颈上的表现，但高度依赖专用生态和XLA编译。
+
+\subsection{国内多头注意力函数相关研究}
+国内多头注意力研究快速发展，2023-2025年间聚焦国产芯片的适配和自主优化，受技术封锁影响，强调算法-硬件协同设计。研究涉及注意力头的混合机制、门控策略和特定应用如交通预测、学术性能预测等。华为和寒武纪等企业主导硬件优化，推动LLMs在国产平台的部署\cite{2025_huang_TowardsEfficientMultiScale}。
+\\
+(1) 华为昇腾上的多头注意力
+
+华为昇腾（Ascend）NPU在多头注意力优化上取得显著进展。2025年发布的Ascend MLA（AMLA）内核针对FlashAttention的重缩放引入MUL-by-ADD技术，优化NPUs的计算效率，支持多头潜伏注意力（Multi-Head Latent Attention, MLA），在DeepSeek V3\cite{2024_deepseek_DeepSeekV3}和R1模型中减少内存使用并提升数学推理准确性。Pangu Ultra 135B模型完全在Ascend上训练，利用MLA实现500 tokens/s的吞吐量。此外，SparkAttention库借鉴TCU融合，加速Volta-like架构上的MHA训练。这些优化使昇腾在超大规模MoE部署中达到新高。
+\\
+(2) 寒武纪上的多头注意力
+
+寒武纪MLU处理器在多头注意力优化上强调编译工具链和并行适配。Cambricon-MLU100和MLU-370通过POWERFUSION和QiMeng-Xpiler实现3.1倍以上的加速，支持PyTorch框架的分片和内核优化\cite{2024_jin_MoHMultiHeadofNPU}。Geneformer模型在MLU290上的移植利用Torch-MLU和CNCL库，进行并行训练和基准测试。此外，TileLang + TVM框架提供同步分叉和厂商特定优化，支持MLA解码。MLU-Link集群扩展到千卡规模，适用于大规模注意力计算，但需优化Logcumsumexp等操作以提升效率。这些研究突显寒武纪在打破AI计算垄断方面的潜力。
 \begin{figure}
     \centering    \includegraphics{figures/hnu-logo.png}
     \caption{Caption标注}
